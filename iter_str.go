@@ -18,6 +18,7 @@ func (iter *Iterator) ReadString() (ret string) {
 			} else if c == '\\' {
 				break
 			} else if c < ' ' {
+				continue
 				iter.ReportError("ReadString",
 					fmt.Sprintf(`invalid control character found: %d`, c))
 				return
